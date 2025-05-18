@@ -5,6 +5,12 @@
   "references": [
     {
       "path": "./apps/shell"
+    },
+    {
+      "path": "./apps/carrito"
+    },
+    {
+      "path": "./apps/productos"
     }
   ]
 }

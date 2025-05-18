@@ -16,6 +16,11 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["development"]
+    "customConditions": ["development"],
+    "baseUrl": ".",
+    "paths": {
+      "carrito/Module": ["apps/carrito/src/remote-entry.ts"],
+      "productos/Module": ["apps/productos/src/remote-entry.ts"]
+    }
   }
 }
