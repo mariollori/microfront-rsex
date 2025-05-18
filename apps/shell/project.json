@@ -4,7 +4,6 @@
   "sourceRoot": "apps/shell/src",
   "projectType": "application",
   "tags": [],
-  "implicitDependencies": ["carrito","productos"],
   "targets": {
     "build": {
       "executor": "@nx/webpack:webpack",
@@ -20,7 +19,8 @@
         "assets": ["apps/shell/src/favicon.ico", "apps/shell/src/assets"],
         "styles": ["apps/shell/src/styles.css"],
         "scripts": [],
-        "webpackConfig": "apps/shell/webpack.config.ts"
+        "webpackConfig": "apps/shell/webpack.config.ts",
+        "postcssConfig": "apps/shell/postcss.config.js"
       },
       "configurations": {
         "development": {
@@ -48,7 +48,6 @@
       "dependsOn": ["^build", "typecheck"]
     },
     "serve": {
-      
       "executor": "@nx/react:module-federation-dev-server",
       "defaultConfiguration": "development",
       "options": {
