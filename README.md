@@ -66,17 +66,38 @@ Nx Console is an editor extension that enriches your developer experience. It le
 
 [Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-## Useful links
+## Add Host App
 
-Learn more:
+To generate a new application Host, use:
 
-- [Learn more about this workspace setup](https://nx.dev/tutorials/2-react-monorepo/1r-introduction/1-welcome?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+```sh
+pnpx nx g @nx/react:host apps/shell
+```
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Add Remote App
+To generate a new application Host, use:
+
+```sh
+pnpx nx g @nx/react:remote --name=carrito --directory=apps
+
+```
+
+## Config Styles
+
+Sometimes nx create deafult styles with .tailwind, in this cases 
+you need to change the name of styles.tailwind to styles.css and project.json file, the next lines:
+
+"styles": ["apps/shell/src/styles.css"],
+
+## Config Remotes in Host App
+
+Add the name of remotes app to module-federation.config.ts file in the host app:
+
+-- remotes: ["productos","carrito"],
+
+
+## Run all apps
+
+```sh
+pnpx nx run-many --target=serve --projects=shell,productos,carrito --parallel
+```
